@@ -1,0 +1,11 @@
+{
+    "version": 3,
+    "mappings": "ACCI,AAAA,GAAG,CAAC;EACA,MAAM,EAAE,eAAe;EACvB,SAAS,EAAE,kBAAkB;EAC7B,UAAU,EAAE,UAAU;EACtB,YAAY,EAAE,IAAI;CAErB;;ACPL,AAAA,EAAE,CAAC;EACC,UAAU,EAAE,MAAM;EAClB,SAAS,EAAE,IAAI;CAClB",
+    "sources": [
+        "main.scss",
+        "_navbar.scss",
+        "_itemList.scss"
+    ],
+    "names": [],
+    "file": "main.css"
+}

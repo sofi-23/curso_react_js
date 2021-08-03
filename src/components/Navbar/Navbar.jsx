@@ -1,4 +1,4 @@
-import '../App.css'
+import CartWidget from './CartWidget'
 
 
 function Navbar () {
@@ -30,7 +30,9 @@ function Navbar () {
                 Accesorios
             </a>
                 </div>
+                <CartWidget />
             </div>
+            
         </nav>
         </>
     )
