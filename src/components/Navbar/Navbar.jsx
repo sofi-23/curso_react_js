@@ -17,16 +17,16 @@ function Navbar () {
             </div>
             <div id="navbarBasicExample" className="navbar-menu">
             <div className="navbar-start">
-                <a className="navbar-item">
+                <a className="navbar-item navbar-item-li">
                 Sillas
                 </a>
-            <a className="navbar-item">
+            <a className="navbar-item navbar-item-li">
                 Teclados
             </a>
-            <a className="navbar-item">
+            <a className="navbar-item navbar-item-li">
                 Escritorios
             </a>
-            <a className="navbar-item">
+            <a className="navbar-item navbar-item-li" >
                 Accesorios
             </a>
                 </div>

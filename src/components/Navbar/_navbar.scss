@@ -1,0 +1,25 @@
+@import "../../styles/mystyles";
+
+.navbar {
+    background: $beige-light;
+    .navbar-item {
+        &:hover {
+            color: $brown;
+        }
+    }
+    .navbar-item-li {
+        &:hover {
+            background: $beige-light;
+            color: $beige-lighter;
+            transition: .8s;
+        }
+    }
+    svg {
+        height: 100% !important;
+        font-size: 1.35rem !important;
+        box-sizing: border-box;
+        margin-right: 1rem;
+        
+
+    }
+}

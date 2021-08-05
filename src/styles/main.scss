@@ -1,2 +1,4 @@
-@import "navbar";
-@import "itemList";
+
+@import "../components/Navbar/navbar";
+@import "../components/ItemListContainer/itemList";
+@import "../components/ItemListContainer/itemCount";
