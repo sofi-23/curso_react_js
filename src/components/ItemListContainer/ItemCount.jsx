@@ -37,11 +37,11 @@ export default function ItemCount ({stock, initial}) {
     return (
         <>
         <div className="itemCountContainer">
-            <button className="button is-warning is-rounded addUp" disabled={disabledMin} onClick={ () => takeOut()}>-</button>
+            <button className="button is-secondary  addUp" disabled={disabledMin} onClick={ () => takeOut()}>-</button>
             <span>{count}</span>
-            <button className="button is-warning is-rounded takeOut" disabled={disabledMax} onClick={ () => addUp()}>+</button>
+            <button className="button  is-secondary  takeOut" disabled={disabledMax} onClick={ () => addUp()}>+</button>
         </div>
-        <button className="button" onClick={() => onAdd()}>Add to cart</button>
+        <button className="button addToCart" onClick={() => onAdd()}>Add to cart</button>
         </>
     )
 }

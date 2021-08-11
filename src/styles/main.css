@@ -5490,6 +5490,26 @@ h1 {
   font-size: 3rem;
 }
 
+.itemListContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 4rem;
+  padding: 2rem;
+}
+
+.itemListContainer .card {
+  width: 17rem;
+}
+
+.itemListContainer .card .addToCart {
+  width: 100%;
+  margin: auto;
+}
+
 .itemCountContainer {
   display: -webkit-box;
   display: -ms-flexbox;
