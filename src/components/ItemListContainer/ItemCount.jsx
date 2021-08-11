@@ -36,11 +36,9 @@ export default function ItemCount ({stock, initial, onAdd}) {
             <span>{count}</span>
             <button className="button  is-secondary  takeOut" disabled={disabledMax} onClick={ () => addUp()}>+</button>
         </div>
-<<<<<<< HEAD
+
         <button className="button addToCart" onClick={() => onAdd()}>Add to cart</button>
-=======
-        <button className="button" onClick={() => onAdd(count)}>Add to cart</button>
->>>>>>> 00a46cce002264c050c212736269c76d4defb4b9
+
         </>
     )
 }

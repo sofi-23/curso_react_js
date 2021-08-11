@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 
 import Item from './Item';
 
@@ -89,17 +89,7 @@ export default function ItemListContainer (props) {
         <div className="itemListContainer">
          {itemList}    
         </div>
-=======
-import ItemCount from './ItemCount';
-import {useState} from 'react';
 
-export default function ItemListContainer (props) {
-    const [itemCount, setItemCount ] = useState(0);
-    return (
-        <>
-        <h1>{props.greeting}</h1>
-        <ItemCount stock={7}  initial={0} onAdd={setItemCount} />
->>>>>>> 00a46cce002264c050c212736269c76d4defb4b9
         </>
     )
 }
