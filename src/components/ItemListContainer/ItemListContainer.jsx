@@ -1,8 +1,9 @@
-
+import {useEffect, useState} from 'react';
 
 import Item from './Item';
 
 export default function ItemListContainer (props) {
+  const [products, setProducts] = useState([]);
     const items = [
         {
         id: '1',
@@ -35,59 +36,28 @@ export default function ItemListContainer (props) {
     }
 
 ];
+  useEffect(()=> {
+    new Promise ((resolve, reject) => {
+      setTimeout(() => {
+        resolve(items)
+      },2000);
+    })
+    .then(dataResolve => {
+      console.log("data Resolve" + dataResolve);
+      setProducts(dataResolve);
+    })
+    .catch(error => {
+      console.log("err" + error);
+    })
+  })
 
-    /*const getItems = (id = null) => {
-        return new Promise ( (resolve, reject) => {
-            setTimeout(() => {
-                const item = items.find(item=> item.id === id)
-                if (item === null) resolve(item)
-                reject( {
-                    status: 404
-                })
-            }, 2000)
-        })
-    }*/
-    //const itemList = items.map(item => <Item key={item.id} name={item.name} price={item.price} img={item.img} stock={item.stock} />)
-
-   let itemList;
-    const getItems = () => {
-      return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          itemList = items.map(item => (
-            <Item
-              key={item.id}
-              name={item.name}
-              price={item.price}
-              img={item.img}
-              stock={item.stock}
-            />
-          ));
-          if (!null) {
-            console.log("resolve")
-            resolve(itemList);
-            
-          } else {
-            reject({
-                
-              status: 404
-            });
-          }
-        }, 2000);
-        return itemList;
-      });
-     
-    };
-
-
-    getItems();
-    console.log("itemList: " + itemList);
-    
-   
 
     return (
         <>
         <div className="itemListContainer">
-         {itemList}    
+         {products.map(product=> (
+           <Item key={product.id} name={product.name} price={product.price} img={product.img} stock={product.stock} />
+         ))}    
         </div>
 
         </>
