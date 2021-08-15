@@ -17,3 +17,17 @@ h1 {
     }
 }
 }
+
+.item {
+    background: #ffe4c4;
+    height: 27rem;
+    width: 20rem;
+    padding: 2rem;
+    padding-top:4rem;
+    .name {
+        font-weight: bold;
+        font-size: 2em;
+        margin-top: 30%
+    }
+
+}

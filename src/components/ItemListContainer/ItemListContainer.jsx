@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react';
 
 import Item from './Item';
+import ItemDetailContainer from './ItemDetailContainer';
 
 export default function ItemListContainer (props) {
   const [products, setProducts] = useState([]);
@@ -36,7 +37,7 @@ export default function ItemListContainer (props) {
     }
 
 ];
-  useEffect(()=> {
+    useEffect(()=> {
     new Promise ((resolve, reject) => {
       setTimeout(() => {
         resolve(items)
@@ -55,9 +56,10 @@ export default function ItemListContainer (props) {
     return (
         <>
         <div className="itemListContainer">
-         {products.map(product=> (
+          <ItemDetailContainer />
+         {/* {products.map(product=> (
            <Item key={product.id} name={product.name} price={product.price} img={product.img} stock={product.stock} />
-         ))}    
+         ))}     */}
         </div>
 
         </>
