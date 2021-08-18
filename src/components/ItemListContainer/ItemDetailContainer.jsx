@@ -4,19 +4,20 @@
 function ItemDetailContainer() { Implementar mock invocando getItems() y utilizando el resolver then return. JSX que devuelva un ItemDitail}*/
 import ItemDetail from './ItemDetail';
 import {useState, useEffect} from 'react';
-import {items} from './items'
+import {items} from './items';
+import {useParams} from 'react-router-dom'
 
-export default function ItemDetailContainer () { 
-    const  [item, setItem] = useState([]);
+export default function ItemDetailContainer () {
 
+    const  [itemList, setItems] = useState([]);
     const getItems = () => {
         new Promise ((resolve, reject) => {
             setTimeout(() => {
-                resolve(items[0])
+                resolve(items)
             }, 2000)
         })
         .then (dataResolve => {
-            setItem(dataResolve);
+            setItems(dataResolve);
         })
         .catch (err => console.log(err)); 
     } 
@@ -25,10 +26,17 @@ export default function ItemDetailContainer () {
         getItems();
     }, [])
 
+    const getItem = (id) => {
+            const item = itemList.find(item => item.id === id);
+            return item;
+        };
+        const { id } = useParams();
+        const item = getItem(id)
+        console.log("items: " + itemList)
 
     return(
-        <>
-        <ItemDetail  name={item.name} image={item.img} price={item.price} stock={item.stock} description={item.description} />
+        <>   
+        <ItemDetail  id={item.id} name={item.name} image={item.img} price={item.price} stock={item.stock} description={item.description} />
         </>
     )
 }

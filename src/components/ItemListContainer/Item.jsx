@@ -1,6 +1,8 @@
 import ItemCount from './ItemCount';
+import { Link } from 'react-router-dom'
 
 export default function Item ({id, name, price, img, stock}) {
+  console.log("Img: " + img)
     return (
         <>
         <div className="card">
@@ -19,7 +21,11 @@ export default function Item ({id, name, price, img, stock}) {
           <div className="content">
             <p>Price: <span>{price}</span></p>
           </div>
+          
           <ItemCount stock={stock} initial={0} />
+          <Link to={ `/item/${id}`}>
+          <span key={id}>See more details</span>
+          </Link>
         </div>
       </div>
       </>
