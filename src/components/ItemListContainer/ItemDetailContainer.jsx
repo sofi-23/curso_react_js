@@ -9,34 +9,37 @@ import {useParams} from 'react-router-dom'
 
 export default function ItemDetailContainer () {
 
-    const  [itemList, setItems] = useState([]);
-    const getItems = () => {
+    const  [item, setItem] = useState([]);
+    const { id } = useParams();
+    const getItem = () => {
         new Promise ((resolve, reject) => {
             setTimeout(() => {
-                resolve(items)
+                const x = items.filter((item)=>item.id == id)
+                resolve(x)
             }, 2000)
         })
         .then (dataResolve => {
-            setItems(dataResolve);
+            setItem(dataResolve);
         })
         .catch (err => console.log(err)); 
     } 
 
     useEffect(() => {
-        getItems();
+        getItem();
     }, [])
 
-    const getItem = (id) => {
-            const item = itemList.find(item => item.id === id);
-            return item;
-        };
-        const { id } = useParams();
-        const item = getItem(id)
-        console.log("items: " + itemList)
+        console.log("item: " + JSON.stringify(item))
 
+    console.log(item.map(i=>i.id))
     return(
-        <>   
-        <ItemDetail  id={item.id} name={item.name} image={item.img} price={item.price} stock={item.stock} description={item.description} />
+        <>  
+        { item.map((item) => {
+            return (
+                <ItemDetail  id={item.id} name={item.name} image={item.img} price={item.price} stock={item.stock} description={item.description} />
+            )
+        })
+       
+        }   
         </>
     )
 }

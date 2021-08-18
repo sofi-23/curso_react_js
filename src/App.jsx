@@ -4,7 +4,7 @@ import './styles/main.css';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ItemDetailContainer from "./components/ItemListContainer/ItemDetailContainer";
-
+import Categories from "./components/pages/Categories"
 
 
 function App() {
@@ -15,6 +15,7 @@ function App() {
       <Navbar />
       <Switch>
       <Route exact path="/" component={ItemListContainer} />
+      <Route exact path='/:category' component={Categories} />
       <Route exact path='/item/:id' component={ItemDetailContainer} />
       </Switch>
     </BrowserRouter>

@@ -19,15 +19,17 @@ h1 {
 }
 
 .item {
-    background: #ffe4c4;
-    height: 27rem;
-    width: 20rem;
-    padding: 2rem;
-    padding-top:4rem;
+    width: 60vw;
+    margin: auto;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    padding: 3rem;
+
     .name {
         font-weight: bold;
         font-size: 2em;
-        margin-top: 30%
+        
     }
 
 }

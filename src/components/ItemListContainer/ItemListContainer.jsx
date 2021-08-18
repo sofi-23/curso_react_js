@@ -14,7 +14,7 @@ export default function ItemListContainer () {
     .then(dataResolve => {
       console.log("data Resolve" + dataResolve);
       setProducts(dataResolve);
-      console.log("id 1" + dataResolve[0].id)
+      console.log("dataResolve " + dataResolve)
     })
     .catch(error => {
       console.log("err" + error);

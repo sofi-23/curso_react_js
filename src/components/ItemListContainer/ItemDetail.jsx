@@ -7,7 +7,7 @@ export default function ItemDetail ({id, name, image, price, description}){
         <>
         <div className="item">
             <div className="name">{name}</div>
-            <img className="image" src={image} />
+            <img className="image" src={image} alt={name} />
             <div className="price">{price}</div>
             <div className="description">{description}</div>
         </div>
