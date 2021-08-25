@@ -1,14 +1,14 @@
-import ItemCount from './ItemCount';
+
 import { Link } from 'react-router-dom'
 
-export default function Item ({id, name, price, img, stock}) {
-  console.log("Img: " + img)
+export default function Item ({id, name, price, image, stock}) {
+  console.log("Img: " + image)
     return (
         <>
         <div className="card">
         <div className="card-image">
           <figure className="image is-4by3">
-            <img src={img} alt={name} />
+            <img src={image} alt={name} />
           </figure>
         </div>
         <div className="card-content">
@@ -22,7 +22,7 @@ export default function Item ({id, name, price, img, stock}) {
             <p>Price: <span>{price}</span></p>
           </div>
           
-          <ItemCount stock={stock} initial={0} />
+         
           <Link to={ `/item/${id}`}>
           <span key={id}>See more details</span>
           </Link>
