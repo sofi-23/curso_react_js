@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import ItemDetail from '../component/ItemDetail';
-export const Context = React.createContext();
+import ItemDetail from '../ItemListContainer/ItemDetail';
+
+export const CustomContext = React.createContext();
 
 
 
@@ -9,9 +10,9 @@ export default function CartContext({props}) {
 
   return (
     <>
-      <Context.Provider value={{}}>
+      <CustomContext.Provider value={{item: '', quantity: ''}}>
         <ItemDetail />
-      </Context.Provider>
+      </CustomContext.Provider>
     </>
   );
 }

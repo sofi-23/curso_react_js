@@ -5,12 +5,13 @@ de compra, siguiendo los detalles de manual. */
 import { useParams, Link } from 'react-router-dom';
 import ItemCount from './ItemCount'
 import { useState, useEffect } from 'react';
-import Context from './Context';
+import CustomContext from '../context/CartContext';
 import { useContext } from 'react';
 
 
 export default function ItemDetail ({id, name, image, price, description, stock}){
-        const value = useContext(Context);
+        const value = useContext(CustomContext);
+       // value.item = name;
         const [cartItems, setCartItems] = useState(0);
         const [display, setDisplay] = useState(true);
         const  onAdd =(amount) => {
@@ -19,7 +20,7 @@ export default function ItemDetail ({id, name, image, price, description, stock}
                 console.log("amount" + amount)
                 console.log("cart items:" + cartItems)
         }
-        
+       // value.quantity = cartItems;
         return(
         <>
         <div className="item">
@@ -29,7 +30,7 @@ export default function ItemDetail ({id, name, image, price, description, stock}
             <div className="description">{description}</div> 
             <div>Cart Items: {cartItems}</div>
             {
-                display ? <ItemCount stock={stock} initial={0} onAdd={onAdd} /> : <Link to="/cart">Termina tu compra</Link>  
+                display ? <ItemCount stock={stock} initial={0} onAdd={onAdd} /> : <Link to="/cart"><button>Termina tu compra</button></Link>  
             }
         </div>
         </>
