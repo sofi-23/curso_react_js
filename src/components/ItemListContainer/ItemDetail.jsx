@@ -5,17 +5,21 @@ de compra, siguiendo los detalles de manual. */
 import { useParams, Link } from 'react-router-dom';
 import ItemCount from './ItemCount'
 import { useState, useEffect } from 'react';
+import Context from './Context';
+import { useContext } from 'react';
 
 
 export default function ItemDetail ({id, name, image, price, description, stock}){
+        const value = useContext(Context);
         const [cartItems, setCartItems] = useState(0);
-        const [display, setDisplay] = useState(true)
+        const [display, setDisplay] = useState(true);
         const  onAdd =(amount) => {
                 setCartItems(amount)
                 setDisplay(false)
                 console.log("amount" + amount)
                 console.log("cart items:" + cartItems)
         }
+        
         return(
         <>
         <div className="item">
