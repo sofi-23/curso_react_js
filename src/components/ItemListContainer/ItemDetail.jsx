@@ -11,6 +11,8 @@ import { useContext } from 'react';
 
 export default function ItemDetail ({id, name, image, price, description, stock}){
         const value = useContext(CustomContext);
+        const [val, setVal] = useState(value)
+        console.log("VALUE " +value)
        // value.item = name;
         const [cartItems, setCartItems] = useState(0);
         const [display, setDisplay] = useState(true);
@@ -19,6 +21,12 @@ export default function ItemDetail ({id, name, image, price, description, stock}
                 setDisplay(false)
                 console.log("amount" + amount)
                 console.log("cart items:" + cartItems)
+        }
+        const addItem = (amount, item) => {
+            value.item = item;
+            value.quantity = amount;
+            console.log("Item: " + value.item + " Quantity: " + value.quantity)
+
         }
        // value.quantity = cartItems;
         return(
@@ -30,7 +38,7 @@ export default function ItemDetail ({id, name, image, price, description, stock}
             <div className="description">{description}</div> 
             <div>Cart Items: {cartItems}</div>
             {
-                display ? <ItemCount stock={stock} initial={0} onAdd={onAdd} /> : <Link to="/cart"><button>Termina tu compra</button></Link>  
+                display ? <ItemCount stock={stock} initial={0} onAdd={onAdd} /> : <Link to="/cart"><button className="button primary" onClick={addItem(cartItems, name)}>Termina tu compra</button></Link>  
             }
         </div>
         </>
