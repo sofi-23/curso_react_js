@@ -1,18 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ItemDetail from '../ItemListContainer/ItemDetail';
 
-export const CustomContext = React.createContext();
+
+export const CartContext = React.createContext();
 
 
 
-export default function CartContext({props}) {
-  const [items, setItems] = useState({});
+export default function CartProvider({children, defaultCart=[]}) {
+  const [cart, setCart] = useState(defaultCart);
+
+  const addItem = ({producto}) => {
+    const result = cart.find( cartItem => cartItem.name === producto.name )
+    if (result === undefined) { //Si no se encontraba en el cart, agrego 
+        setCart({
+          ...cart, 
+          item: producto.name, 
+          quantity: producto.quantity
+        })
+        cart.map(items=> console.log("Item: " + items.name + "Quantity: " +  items.quantity))
+        console.log("Total items: " + cart.length)
+    }else{ //Si ya estaba en el cart, sumo solo cantidad
+      cart.map(items=> console.log("Item: " + items.name + "Quantity: " +  items.quantity ))
+      
+      alert("ITEMS EN EL CARRITO: " + cart.length + "producto.quantity " +  producto.quantity)
+    }
+    
+  }
+  
 
   return (
     <>
-      <CustomContext.Provider value={{item: '', quantity: ''}}>
-        <ItemDetail />
-      </CustomContext.Provider>
+      <CartContext.Provider value={{cart, addItem}}>
+        {children}
+      </CartContext.Provider>
     </>
   );
 }

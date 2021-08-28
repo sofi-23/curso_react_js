@@ -2,7 +2,6 @@
 import { Link } from 'react-router-dom'
 
 export default function Item ({id, name, price, image, stock}) {
-  console.log("Img: " + image)
     return (
         <>
         <div className="card">

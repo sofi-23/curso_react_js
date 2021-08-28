@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 
-export default function ItemCount ({stock, initial, onAdd}) {
+export default function ItemCount ({stock, initial, onAdd, id, name}) {
     const [count, setCount] = useState(initial);
     const [disabledMax, setDisabledMax] = useState(false);
     const [disabledMin, setDisabledMin] = useState(true);
@@ -37,7 +37,7 @@ export default function ItemCount ({stock, initial, onAdd}) {
             <span>{count}</span>
             <button className="button  is-secondary  takeOut" disabled={disabledMax} onClick={ () => addUp()}>+</button>
         </div>
-        <button className="button addToCart" onClick={()=>onAdd(count)}>Add to cart</button>
+        <button className="button addToCart" onClick={()=>onAdd(count, id, name)}>Add to cart</button>
 
         </>
     )

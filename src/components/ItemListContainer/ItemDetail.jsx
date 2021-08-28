@@ -5,30 +5,22 @@ de compra, siguiendo los detalles de manual. */
 import { useParams, Link } from 'react-router-dom';
 import ItemCount from './ItemCount'
 import { useState, useEffect } from 'react';
-import CustomContext from '../context/CartContext';
+import { CartContext } from '../context/CartContext';
 import { useContext } from 'react';
 
-
 export default function ItemDetail ({id, name, image, price, description, stock}){
-        const value = useContext(CustomContext);
-        const [val, setVal] = useState(value)
-        console.log("VALUE " +value)
-       // value.item = name;
-        const [cartItems, setCartItems] = useState(0);
-        const [display, setDisplay] = useState(true);
-        const  onAdd =(amount) => {
-                setCartItems(amount)
-                setDisplay(false)
-                console.log("amount" + amount)
-                console.log("cart items:" + cartItems)
-        }
-        const addItem = (amount, item) => {
-            value.item = item;
-            value.quantity = amount;
-            console.log("Item: " + value.item + " Quantity: " + value.quantity)
-
-        }
-       // value.quantity = cartItems;
+    const { addItem } = useContext(CartContext);
+     const [quantity, setQuantity] = useState(0);
+     const [display, setDisplay] = useState(true);
+     console.log("KEY " + id)
+     const  onAdd =(amount, id, name) => {
+             setQuantity(amount)
+             setDisplay(false)
+             console.log("ID " +id)
+             const producto = {id: id, name: name, amount: amount}
+             addItem({ producto })
+             console.log("PRODUCTO en ItemDetail" + producto + " ID: " + producto.id + " name " + producto.name + " amount: " + producto.amount)
+     }
         return(
         <>
         <div className="item">
@@ -36,9 +28,9 @@ export default function ItemDetail ({id, name, image, price, description, stock}
             <img className="image" src={image} alt={name} />
             <div className="price">{price}</div>
             <div className="description">{description}</div> 
-            <div>Cart Items: {cartItems}</div>
+            <div>Cart Items: {quantity}</div>
             {
-                display ? <ItemCount stock={stock} initial={0} onAdd={onAdd} /> : <Link to="/cart"><button className="button primary" onClick={addItem(cartItems, name)}>Termina tu compra</button></Link>  
+                display ? <ItemCount stock={stock} initial={0} onAdd={onAdd} id={id} name={name} /> : <Link to="/cart"><button className="button primary">Termina tu compra</button></Link>  
             }
         </div>
         </>
